@@ -35,9 +35,14 @@ jobs:
       with:
         name: dist-python
         path: build/python/dist
+
+    - name: Prepare asset for upload
+      run: |
+        mv build/python/dist/*.tar.gz build/python/openagents_service_provider_proto-PYTHON.tar.gz
     
     - name: Upload release asset
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v1
       with:
-        files: build/python/dist/*.tar.gz
+        files: build/python/openagents_service_provider_proto-PYTHON.tar.gz
+        
