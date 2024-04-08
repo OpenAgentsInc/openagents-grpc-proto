@@ -1,0 +1,56 @@
+name: Build Javascript/Typescript
+
+on:
+  push:
+   
+  release:
+    types: [published]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write      
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '21'  
+        registry-url: 'https://npm.pkg.github.com'
+
+    - name: Build
+      run: bash build-javascript.sh   
+
+    - name: Upload Javascript artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-javascript
+        path: build/javascript/dist
+    
+    - name: Upload Typescript artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-typescript
+        path: build/javascript/src   
+
+    - name: Upload dist
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist-typescript-javascript
+        path: build/javascript/*.tgz
+
+    - name: Upload release asset
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/javascript/openagents-service-provider-proto-*.tgz
+
+    - name: Publish
+      if: github.event_name == 'release'
+      run: cd build/javascript && npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

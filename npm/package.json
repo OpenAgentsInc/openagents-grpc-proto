@@ -1,0 +1,21 @@
+{
+    "name": "openagents-service-provider-proto",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "build": "tsc"
+    },
+    "author": "",
+    "license": "",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.10.6",
+        "@protobuf-ts/plugin": "^2.9.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.12.5",
+        "typescript": "^5.4.4"
+    },
+    "files": [
+        "dist"
+    ]
+}
