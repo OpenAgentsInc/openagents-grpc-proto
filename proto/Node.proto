@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+
+message Node {
+    string id = 1;
+    string iconUrl = 3;
+    string name = 4;
+    string description = 5;
+    repeated string eventTemplates = 6; 
+}
+

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 mkdir -p tmp
 mkdir -p build/php
 pecl install grpc

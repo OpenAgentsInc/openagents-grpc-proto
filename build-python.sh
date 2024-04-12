@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 mkdir -p tmp
 python3 -m venv tmp/protobuild-venv
 . tmp/protobuild-venv/bin/activate

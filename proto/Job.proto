@@ -28,6 +28,7 @@ message Job {
   JobState state = 11;
   
   uint64 maxExecutionTime = 13; // enforced by the provider
+  string nodeId = 15;
   // map<string,JobResult> results = 12;
 
   // map<string,JobState> states = 11;

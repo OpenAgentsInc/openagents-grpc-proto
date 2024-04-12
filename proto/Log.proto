@@ -7,4 +7,5 @@ message Log {
   string level = 3;
   uint64 timestamp = 4;
   string source = 5;
+  string nodeId = 6;
 }

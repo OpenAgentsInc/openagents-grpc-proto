@@ -7,6 +7,7 @@ import "JobParam.proto";
 import "JobInput.proto";
 import "JobResult.proto";
 import "Job.proto";
+import "Node.proto";
 
 message RpcRequestJob {
     string runOn = 1;
@@ -33,7 +34,6 @@ message RpcGetPendingJobs {
 message PendingJobs {
     repeated Job jobs = 1;
 }
-
 
 
 message RpcIsJobDone {
@@ -109,6 +109,30 @@ message RpcUnsubscribeFromEventsResponse{
   bool success = 1;
 }
 
+
+message RpcAnnounceNodeRequest {
+  string iconUrl = 3;
+  string name = 4;
+  string description = 5;
+}
+
+message RpcAnnounceNodeResponse {
+  bool success = 1;
+  Node node = 2;
+  uint64 refreshInterval = 4;
+  
+}
+
+message RpcAnnounceTemplateRequest { 
+  string eventTemplate = 2;
+}
+
+message RpcAnnounceTemplateResponse {
+  bool success = 1;
+  Node node = 2;
+  uint64 refreshInterval = 4;
+}
+
 service NostrConnector {
     // job management
     rpc requestJob (RpcRequestJob) returns (Job);
@@ -121,6 +145,10 @@ service NostrConnector {
     rpc completeJob(RpcJobComplete) returns (Job);
     rpc logForJob(RpcJobLog) returns (Job);
 
+
+    // discovery
+    rpc announceNode (RpcAnnounceNodeRequest) returns (RpcAnnounceNodeResponse);
+    rpc announceEventTemplate (RpcAnnounceTemplateRequest) returns (RpcAnnounceTemplateResponse);
 
 
     // generic nostr events

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 mkdir -p build/javascript/src
 mkdir -p build/javascript/dist
 
