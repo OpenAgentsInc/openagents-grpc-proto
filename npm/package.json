@@ -1,6 +1,6 @@
 {
-    "name": "openagents-service-provider-proto",
-    "version": "1.0.0",
+    "name": "openagents-grpc-proto",
+    "version": "0.3.4",
     "description": "",
     "scripts": {
         "build": "tsc"
@@ -16,6 +16,7 @@
         "typescript": "^5.4.4"
     },
     "files": [
-        "dist"
+        "dist",
+        "index.js"
     ]
 }

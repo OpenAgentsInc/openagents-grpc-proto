@@ -13,4 +13,5 @@ npx protoc --ts_out build/javascript/src \
 cp -Rvf npm/* build/javascript/
 cd build/javascript
 npm run build
+node generate_imports.cjs
 npm pack

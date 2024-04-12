@@ -45,13 +45,13 @@ jobs:
 
     - name: Prepare asset for upload
       run: |
-        mv  build/javascript/openagents-service-provider-proto-*.tgz build/javascript/openagents_service_provider_proto-JAVASCRIPT.tgz
+        mv  build/javascript/openagents-*-proto-*.tgz build/javascript/openagents_grpc_proto-JAVASCRIPT.tgz
     
     - name: Upload release asset
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v1
       with:
-        files: build/javascript/openagents_service_provider_proto-JAVASCRIPT.tgz
+        files: build/javascript/openagents_grpc_proto-JAVASCRIPT.tgz
 
     - name: Publish
       if: github.event_name == 'release'

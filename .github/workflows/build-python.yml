@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: build-python
-        path: build/python/openagents_service_provider_proto
+        path: build/python/openagents_grpc_proto
     
     - name: Upload Python dist
       uses: actions/upload-artifact@v2
@@ -38,11 +38,11 @@ jobs:
 
     - name: Prepare asset for upload
       run: |
-        mv build/python/dist/*.tar.gz build/python/openagents_service_provider_proto-PYTHON.tar.gz
+        mv build/python/dist/*.tar.gz build/python/openagents_grpc_proto-PYTHON.tar.gz
     
     - name: Upload release asset
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v1
       with:
-        files: build/python/openagents_service_provider_proto-PYTHON.tar.gz
+        files: build/python/openagents_grpc_proto-PYTHON.tar.gz
         
