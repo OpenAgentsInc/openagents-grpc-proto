@@ -12,6 +12,13 @@ npx protoc --ts_out build/javascript \
 
 cp -Rvf npm/* build/javascript/
 cd build/javascript
+
+TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+if [[ -n "$TAG" ]]; then
+    TAG=${TAG#v}
+    sed -i "s/\"version\": \".*\"/\"version\": \"$TAG\"/g" package.json
+fi
+
 node generate_imports.cjs
 
 npm run build
