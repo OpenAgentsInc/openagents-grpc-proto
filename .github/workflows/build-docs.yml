@@ -1,0 +1,59 @@
+name: Build Documentation
+
+on:
+  push:
+   
+  release:
+    types: [published]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write      
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '21'  
+        registry-url: 'https://npm.pkg.github.com'
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run:  |
+        npm i --save-dev @grpc/grpc-js ts-protoc-gen @protobuf-ts/plugin typescript @types/node
+        python -m pip install --upgrade pip
+
+
+    - name: Build
+      run: |
+        bash build-docs.sh
+        tar -czf build/docs.tar.gz -C build/docs .
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: docs
+        path: build/docs
+    
+    - name: Upload release asset
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/docs.tar.gz
+
+   
+    - name: Deploy to GitHub Pages
+      if: github.event_name == 'release'
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build/docs
