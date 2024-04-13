@@ -25,27 +25,15 @@ jobs:
     - name: Build
       run: bash build-javascript.sh   
 
-    - name: Upload Javascript artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-javascript
-        path: build/javascript/dist
-    
-    - name: Upload Typescript artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-typescript
-        path: build/javascript/src   
+    - name: Prepare for upload
+      run: |
+        mv  build/javascript/openagents-*-proto-*.tgz build/javascript/openagents_grpc_proto-JAVASCRIPT.tgz
 
-    - name: Upload dist
+    - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: dist-javascript
         path: build/javascript/*.tgz
-
-    - name: Prepare asset for upload
-      run: |
-        mv  build/javascript/openagents-*-proto-*.tgz build/javascript/openagents_grpc_proto-JAVASCRIPT.tgz
     
     - name: Upload release asset
       if: github.event_name == 'release'

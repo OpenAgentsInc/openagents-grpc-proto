@@ -2,11 +2,11 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "outDir": "dist",
+        "outDir": ".",
         "moduleResolution": "node",
         "esModuleInterop": true,
         "declaration": true
     },
-    "include": ["./src/*.ts"],
+    "include": ["*.ts"],
     "exclude": ["node_modules"]
 }
