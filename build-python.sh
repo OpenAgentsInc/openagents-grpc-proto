@@ -15,6 +15,13 @@ proto/*.proto
 cp -Rvf python/* build/python/
 cd build/python
 
+TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+if [[ -n "$TAG" ]]; then
+    TAG=${TAG#v}
+    export TAG
+else
+    export TAG="0.1"
+fi
 
 
 if [ "$DEBUG" = "1" ] ;

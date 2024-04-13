@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
+import os
 
+version = os.getenv('TAG', '0.1')
 setup(
-    name='openagents_service_provider_proto',
-    version='0.1',
+    name='openagents_grpc_proto',
+    version=version,
     packages=find_packages(),
     install_requires=[
         'protobuf==5.26.1',
