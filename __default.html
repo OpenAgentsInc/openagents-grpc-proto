@@ -1,0 +1,3212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenAgents gRPC</title>
+    <link rel="stylesheet" href="static/mystyles.css" />
+    <script src="static/fontawesome.js"></script>
+    <script src="static/lunr.js"></script>
+    <script src="static/theme.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="level pt-6 mb-5 pb-2 bottom-border">
+        <div class="level-left">
+          <p class="level-item has-text-centered is-size-3 has-text-weight-medium">
+            <a class="link is-info" href="index.html">
+              OpenAgents gRPC
+            </a>
+          </p>
+        </div>
+
+        <div class="level-right">
+          
+          <form action="search.html" class="mr-2 has-text-centered">
+            <input type="text" name="query" class="input mr-3 navbar-search-query-input" placeholder="Search">
+            <input type="submit" class="button is-primary mr-5" value="Search" />
+          </form>
+          
+
+          <p class="level-item has-text-centered is-size-5">
+            <a href="" class="link is-info mr-5" target="_blank">
+              
+              <span>Source</span>
+            </a>
+
+            <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite" type="button">
+              <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                <mask class="moon" id="moon-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <circle cx="24" cy="10" r="6" fill="black" />
+                </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+                <g class="sun-beams" stroke="currentColor">
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </g>
+              </svg>
+            </button>
+          </p>
+        </div>
+      </nav>
+    </div>
+
+    <div id="main-content" class="container mb-6">
+  <p class="mb-2">
+    <a style="font-size: 0.9em" href="index.html">← Back to packages</a>
+  </p>
+  <h3 class="title is-3">
+    
+    Default package
+    
+  </h3>
+
+  <div class="block">
+    
+    <p>
+      <a href="#service-NostrConnector">
+        <span class="tag" style="min-width: 6em">Service</span>
+        <code>NostrConnector</code> 
+      </a>
+    </p>
+    
+
+    
+      
+      <p>
+        <a href="#message-JobParam">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>JobParam</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-JobInput">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>JobInput</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-Log">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Log</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-JobState">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>JobState</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-JobResult">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>JobResult</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-Job">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Job</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-Node">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Node</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcRequestJob">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcRequestJob</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcGetJob">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcGetJob</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcGetPendingJobs">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcGetPendingJobs</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-PendingJobs">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>PendingJobs</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcIsJobDone">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcIsJobDone</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcAcceptJob">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcAcceptJob</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcCancelJob">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcCancelJob</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcJobOutput">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcJobOutput</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcJobComplete">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcJobComplete</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcJobLog">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcJobLog</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcSendSignedEventRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcSendSignedEventRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcSubscribeToEventsRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcSubscribeToEventsRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcSubscribeToEventsResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcSubscribeToEventsResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcGetEventsRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcGetEventsRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcGetEventsResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcGetEventsResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcSendSignedEventResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcSendSignedEventResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcUnsubscribeFromEventsRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcUnsubscribeFromEventsRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcUnsubscribeFromEventsResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcUnsubscribeFromEventsResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcAnnounceNodeRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcAnnounceNodeRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcAnnounceNodeResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcAnnounceNodeResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcAnnounceTemplateRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcAnnounceTemplateRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcAnnounceTemplateResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcAnnounceTemplateResponse</code> 
+        </a>
+      </p>
+      
+    
+
+    
+      <p>
+        <a href="#enum-JobStatus">
+          <span class="tag" style="min-width: 6em">Enum</span>
+          <code>JobStatus</code> 
+        </a>
+      </p>
+    
+  </div>
+
+  <div class="block">
+      
+  </div>
+
+  
+
+  <div class="block">
+    <h3 class="title is-3">
+      Services
+    </h3>
+
+    
+    <div>
+      
+
+<h4 class="title is-4 type-heading" id="service-NostrConnector">
+  <a href="#service-NostrConnector" title="NostrConnector">service NostrConnector</a>
+  
+</h4>
+
+<div class="block content">
+  <p></p>
+</div>
+
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-requestJob">
+      <a href="#service-NostrConnector-requestJob">
+        rpc <code>requestJob</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcRequestJob"><span title="RpcRequestJob">RpcRequestJob</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a></code><br>
+  </div>
+
+  
+  <div class="block">
+    <p><p>job management</p></p>
+  </div>
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-getJob">
+      <a href="#service-NostrConnector-getJob">
+        rpc <code>getJob</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcGetJob"><span title="RpcGetJob">RpcGetJob</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-getPendingJobs">
+      <a href="#service-NostrConnector-getPendingJobs">
+        rpc <code>getPendingJobs</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcGetPendingJobs"><span title="RpcGetPendingJobs">RpcGetPendingJobs</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-PendingJobs"><span title="PendingJobs">PendingJobs</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-isJobDone">
+      <a href="#service-NostrConnector-isJobDone">
+        rpc <code>isJobDone</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcGetJob"><span title="RpcGetJob">RpcGetJob</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-RpcIsJobDone"><span title="RpcIsJobDone">RpcIsJobDone</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-acceptJob">
+      <a href="#service-NostrConnector-acceptJob">
+        rpc <code>acceptJob</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcAcceptJob"><span title="RpcAcceptJob">RpcAcceptJob</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-cancelJob">
+      <a href="#service-NostrConnector-cancelJob">
+        rpc <code>cancelJob</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcCancelJob"><span title="RpcCancelJob">RpcCancelJob</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-outputForJob">
+      <a href="#service-NostrConnector-outputForJob">
+        rpc <code>outputForJob</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcJobOutput"><span title="RpcJobOutput">RpcJobOutput</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-completeJob">
+      <a href="#service-NostrConnector-completeJob">
+        rpc <code>completeJob</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcJobComplete"><span title="RpcJobComplete">RpcJobComplete</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-logForJob">
+      <a href="#service-NostrConnector-logForJob">
+        rpc <code>logForJob</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcJobLog"><span title="RpcJobLog">RpcJobLog</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-announceNode">
+      <a href="#service-NostrConnector-announceNode">
+        rpc <code>announceNode</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcAnnounceNodeRequest"><span title="RpcAnnounceNodeRequest">RpcAnnounceNodeRequest</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-RpcAnnounceNodeResponse"><span title="RpcAnnounceNodeResponse">RpcAnnounceNodeResponse</span>
+    </a></code><br>
+  </div>
+
+  
+  <div class="block">
+    <p><p>discovery</p></p>
+  </div>
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-announceEventTemplate">
+      <a href="#service-NostrConnector-announceEventTemplate">
+        rpc <code>announceEventTemplate</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcAnnounceTemplateRequest"><span title="RpcAnnounceTemplateRequest">RpcAnnounceTemplateRequest</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-RpcAnnounceTemplateResponse"><span title="RpcAnnounceTemplateResponse">RpcAnnounceTemplateResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-sendSignedEvent">
+      <a href="#service-NostrConnector-sendSignedEvent">
+        rpc <code>sendSignedEvent</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcSendSignedEventRequest"><span title="RpcSendSignedEventRequest">RpcSendSignedEventRequest</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-RpcSendSignedEventResponse"><span title="RpcSendSignedEventResponse">RpcSendSignedEventResponse</span>
+    </a></code><br>
+  </div>
+
+  
+  <div class="block">
+    <p><p>generic nostr events</p></p>
+  </div>
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-subscribeToEvents">
+      <a href="#service-NostrConnector-subscribeToEvents">
+        rpc <code>subscribeToEvents</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcSubscribeToEventsRequest"><span title="RpcSubscribeToEventsRequest">RpcSubscribeToEventsRequest</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-RpcSubscribeToEventsResponse"><span title="RpcSubscribeToEventsResponse">RpcSubscribeToEventsResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-unsubscribeFromEvents">
+      <a href="#service-NostrConnector-unsubscribeFromEvents">
+        rpc <code>unsubscribeFromEvents</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcUnsubscribeFromEventsRequest"><span title="RpcUnsubscribeFromEventsRequest">RpcUnsubscribeFromEventsRequest</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-RpcUnsubscribeFromEventsResponse"><span title="RpcUnsubscribeFromEventsResponse">RpcUnsubscribeFromEventsResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-NostrConnector-getEvents">
+      <a href="#service-NostrConnector-getEvents">
+        rpc <code>getEvents</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcGetEventsRequest"><span title="RpcGetEventsRequest">RpcGetEventsRequest</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-RpcGetEventsResponse"><span title="RpcGetEventsResponse">RpcGetEventsResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+ 
+    </div>
+    
+  </div>
+
+  
+
+  
+
+    <h3 class="title is-3">
+      Messages
+    </h3>
+
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-JobParam">
+  <span>
+    <a href="#message-JobParam" title="JobParam">message JobParam</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        key
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        value
+      </td>
+      <td>
+        <code title="string">
+          
+            repeated
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-JobInput">
+  <span>
+    <a href="#message-JobInput" title="JobInput">message JobInput</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        data
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        ref
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        type
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        marker
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        source
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-Log">
+  <span>
+    <a href="#message-Log" title="Log">message Log</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        log
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        level
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        timestamp
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        source
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        nodeId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-JobState">
+  <span>
+    <a href="#message-JobState" title="JobState">message JobState</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>13</td>
+      <td>
+        acceptedAt
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>14</td>
+      <td>
+        acceptedBy
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>15</td>
+      <td>
+        status
+      </td>
+      <td>
+        <code title="JobStatus">
+          
+          <a href="__default.html#enum-JobStatus"><span title="JobStatus">JobStatus</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>17</td>
+      <td>
+        logs
+      </td>
+      <td>
+        <code title="Log">
+          
+            repeated
+          
+          <a href="__default.html#message-Log"><span title="Log">Log</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>18</td>
+      <td>
+        timestamp
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-JobResult">
+  <span>
+    <a href="#message-JobResult" title="JobResult">message JobResult</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        content
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        timestamp
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-Job">
+  <span>
+    <a href="#message-Job" title="Job">message Job</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>14</td>
+      <td>
+        kind
+      </td>
+      <td>
+        <code title="uint32">
+          
+          <span>uint32</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        runOn
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        expiration
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        timestamp
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        input
+      </td>
+      <td>
+        <code title="JobInput">
+          
+            repeated
+          
+          <a href="__default.html#message-JobInput"><span title="JobInput">JobInput</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>primary input</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        param
+      </td>
+      <td>
+        <code title="JobParam">
+          
+            repeated
+          
+          <a href="__default.html#message-JobParam"><span title="JobParam">JobParam</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>additional parameters</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>7</td>
+      <td>
+        customerPublicKey
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>8</td>
+      <td>
+        description
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>9</td>
+      <td>
+        provider
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>10</td>
+      <td>
+        relays
+      </td>
+      <td>
+        <code title="string">
+          
+            repeated
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>12</td>
+      <td>
+        result
+      </td>
+      <td>
+        <code title="JobResult">
+          
+          <a href="__default.html#message-JobResult"><span title="JobResult">JobResult</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>11</td>
+      <td>
+        state
+      </td>
+      <td>
+        <code title="JobState">
+          
+          <a href="__default.html#message-JobState"><span title="JobState">JobState</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>13</td>
+      <td>
+        maxExecutionTime
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"><p>enforced by the provider</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>15</td>
+      <td>
+        nodeId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>map<string,JobResult> results = 12;</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-Node">
+  <span>
+    <a href="#message-Node" title="Node">message Node</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        iconUrl
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        description
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        eventTemplates
+      </td>
+      <td>
+        <code title="string">
+          
+            repeated
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcRequestJob">
+  <span>
+    <a href="#message-RpcRequestJob" title="RpcRequestJob">message RpcRequestJob</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        runOn
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        expireAfter
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        input
+      </td>
+      <td>
+        <code title="JobInput">
+          
+            repeated
+          
+          <a href="__default.html#message-JobInput"><span title="JobInput">JobInput</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        param
+      </td>
+      <td>
+        <code title="JobParam">
+          
+            repeated
+          
+          <a href="__default.html#message-JobParam"><span title="JobParam">JobParam</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        description
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>7</td>
+      <td>
+        kind
+      </td>
+      <td>
+        <code title="uint32">
+          
+            optional
+          
+          <span>uint32</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>8</td>
+      <td>
+        outputFormat
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcGetJob">
+  <span>
+    <a href="#message-RpcGetJob" title="RpcGetJob">message RpcGetJob</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcGetPendingJobs">
+  <span>
+    <a href="#message-RpcGetPendingJobs" title="RpcGetPendingJobs">message RpcGetPendingJobs</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        filterByRunOn
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        filterByCustomer
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        filterByDescription
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        filterById
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        filterByKind
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-PendingJobs">
+  <span>
+    <a href="#message-PendingJobs" title="PendingJobs">message PendingJobs</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobs
+      </td>
+      <td>
+        <code title="Job">
+          
+            repeated
+          
+          <a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcIsJobDone">
+  <span>
+    <a href="#message-RpcIsJobDone" title="RpcIsJobDone">message RpcIsJobDone</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        isDone
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcAcceptJob">
+  <span>
+    <a href="#message-RpcAcceptJob" title="RpcAcceptJob">message RpcAcceptJob</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcCancelJob">
+  <span>
+    <a href="#message-RpcCancelJob" title="RpcCancelJob">message RpcCancelJob</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        reason
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcJobOutput">
+  <span>
+    <a href="#message-RpcJobOutput" title="RpcJobOutput">message RpcJobOutput</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        output
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcJobComplete">
+  <span>
+    <a href="#message-RpcJobComplete" title="RpcJobComplete">message RpcJobComplete</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        output
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        info
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcJobLog">
+  <span>
+    <a href="#message-RpcJobLog" title="RpcJobLog">message RpcJobLog</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        log
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcSendSignedEventRequest">
+  <span>
+    <a href="#message-RpcSendSignedEventRequest" title="RpcSendSignedEventRequest">message RpcSendSignedEventRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        parentJob
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        event
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcSubscribeToEventsRequest">
+  <span>
+    <a href="#message-RpcSubscribeToEventsRequest" title="RpcSubscribeToEventsRequest">message RpcSubscribeToEventsRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        parentJob
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        filters
+      </td>
+      <td>
+        <code title="string">
+          
+            repeated
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcSubscribeToEventsResponse">
+  <span>
+    <a href="#message-RpcSubscribeToEventsResponse" title="RpcSubscribeToEventsResponse">message RpcSubscribeToEventsResponse</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        parentJob
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        subscriptionId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcGetEventsRequest">
+  <span>
+    <a href="#message-RpcGetEventsRequest" title="RpcGetEventsRequest">message RpcGetEventsRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        parentJob
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        subscriptionId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        limit
+      </td>
+      <td>
+        <code title="uint32">
+          
+          <span>uint32</span>
+        </code>
+      </td>
+      <td class="content"><p>optional : 0 or unset means no limit</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcGetEventsResponse">
+  <span>
+    <a href="#message-RpcGetEventsResponse" title="RpcGetEventsResponse">message RpcGetEventsResponse</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        parentJob
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        count
+      </td>
+      <td>
+        <code title="uint32">
+          
+          <span>uint32</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        subscriptionId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        events
+      </td>
+      <td>
+        <code title="string">
+          
+            repeated
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcSendSignedEventResponse">
+  <span>
+    <a href="#message-RpcSendSignedEventResponse" title="RpcSendSignedEventResponse">message RpcSendSignedEventResponse</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        parentJob
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        success
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcUnsubscribeFromEventsRequest">
+  <span>
+    <a href="#message-RpcUnsubscribeFromEventsRequest" title="RpcUnsubscribeFromEventsRequest">message RpcUnsubscribeFromEventsRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        parentJob
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        subscriptionId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcUnsubscribeFromEventsResponse">
+  <span>
+    <a href="#message-RpcUnsubscribeFromEventsResponse" title="RpcUnsubscribeFromEventsResponse">message RpcUnsubscribeFromEventsResponse</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        success
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcAnnounceNodeRequest">
+  <span>
+    <a href="#message-RpcAnnounceNodeRequest" title="RpcAnnounceNodeRequest">message RpcAnnounceNodeRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        iconUrl
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        name
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        description
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcAnnounceNodeResponse">
+  <span>
+    <a href="#message-RpcAnnounceNodeResponse" title="RpcAnnounceNodeResponse">message RpcAnnounceNodeResponse</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        success
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        node
+      </td>
+      <td>
+        <code title="Node">
+          
+          <a href="__default.html#message-Node"><span title="Node">Node</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        refreshInterval
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcAnnounceTemplateRequest">
+  <span>
+    <a href="#message-RpcAnnounceTemplateRequest" title="RpcAnnounceTemplateRequest">message RpcAnnounceTemplateRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        eventTemplate
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcAnnounceTemplateResponse">
+  <span>
+    <a href="#message-RpcAnnounceTemplateResponse" title="RpcAnnounceTemplateResponse">message RpcAnnounceTemplateResponse</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        success
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        node
+      </td>
+      <td>
+        <code title="Node">
+          
+          <a href="__default.html#message-Node"><span title="Node">Node</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        refreshInterval
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+
+  
+
+  
+
+    <h3 class="title is-3">
+      Enums
+    </h3>
+
+    
+    <div class="block">
+      <h4 class="title is-4 type-heading" id="enum-JobStatus">
+  <a href="#enum-JobStatus" title="JobStatus">enum JobStatus</a>
+  
+</h4>
+
+<div class="block content">
+  <p></p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><code>PENDING</code></td>
+      <td>0</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>PROCESSING</code></td>
+      <td>1</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>ERROR</code></td>
+      <td>2</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>SUCCESS</code></td>
+      <td>3</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>PARTIAL</code></td>
+      <td>4</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>PAYMENT_REQUIRED</code></td>
+      <td>7</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>UNKNOWN</code></td>
+      <td>99</td>
+      <td class="content"></td>
+    </tr>
+    
+  </tbody>
+</table> 
+    </div>
+    
+
+  
+
+</div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        
+        <p>Built with <strong><a href="https://github.com/markvincze/sabledocs" target="_blank">sabledocs</a></strong>.</p>
+      </div>
+    </footer>
+  </body>
+</html>
