@@ -122,7 +122,7 @@ message RpcAnnounceNodeResponse {
 }
 
 message RpcAnnounceTemplateRequest { 
-  uint32 kind = 1;
+  string meta = 1;
   string template = 2;
   string sockets = 3;  
 }
