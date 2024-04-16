@@ -7,7 +7,6 @@ import "JobParam.proto";
 import "JobInput.proto";
 import "JobResult.proto";
 import "Job.proto";
-import "Node.proto";
 
 message RpcRequestJob {
     string runOn = 1;
@@ -118,18 +117,18 @@ message RpcAnnounceNodeRequest {
 
 message RpcAnnounceNodeResponse {
   bool success = 1;
-  Node node = 2;
   uint64 refreshInterval = 4;
   
 }
 
 message RpcAnnounceTemplateRequest { 
-  string eventTemplate = 2;
+  uint32 kind = 1;
+  string template = 2;
+  string sockets = 3;  
 }
 
 message RpcAnnounceTemplateResponse {
   bool success = 1;
-  Node node = 2;
   uint64 refreshInterval = 4;
 }
 
