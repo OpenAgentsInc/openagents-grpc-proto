@@ -135,15 +135,6 @@
     
       
       <p>
-        <a href="#message-Node">
-          <span class="tag" style="min-width: 6em">Message</span>
-          <code>Node</code> 
-        </a>
-      </p>
-      
-    
-      
-      <p>
         <a href="#message-RpcRequestJob">
           <span class="tag" style="min-width: 6em">Message</span>
           <code>RpcRequestJob</code> 
@@ -1403,118 +1394,6 @@
         </code>
       </td>
       <td class="content"><p>map<string,JobResult> results = 12;</p></td>
-      
-    </tr>
-    
-    
-  </tbody>
-</table>
- 
-      </div>
-      
-    
-      
-      <div class="block">
-        
-
-<h4 class="title is-4 type-heading" id="message-Node">
-  <span>
-    <a href="#message-Node" title="Node">message Node</a>
-  
-  </span>
-  
-</h4>
-
-<div class="block content">
-  
-</div>
-
-<table class="table is-fullwidth is-hoverable is-bordered">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Description</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>1</td>
-      <td>
-        id
-      </td>
-      <td>
-        <code title="string">
-          
-          <span>string</span>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    <tr>
-      <td>3</td>
-      <td>
-        iconUrl
-      </td>
-      <td>
-        <code title="string">
-          
-          <span>string</span>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    <tr>
-      <td>4</td>
-      <td>
-        name
-      </td>
-      <td>
-        <code title="string">
-          
-          <span>string</span>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    <tr>
-      <td>5</td>
-      <td>
-        description
-      </td>
-      <td>
-        <code title="string">
-          
-          <span>string</span>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    <tr>
-      <td>6</td>
-      <td>
-        eventTemplates
-      </td>
-      <td>
-        <code title="string">
-          
-            repeated
-          
-          <span>string</span>
-        </code>
-      </td>
-      <td class="content"></td>
       
     </tr>
     
@@ -2953,22 +2832,6 @@
     </tr>
     
     <tr>
-      <td>2</td>
-      <td>
-        node
-      </td>
-      <td>
-        <code title="Node">
-          
-          <a href="__default.html#message-Node"><span title="Node">Node</span>
-    </a>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    <tr>
       <td>4</td>
       <td>
         refreshInterval
@@ -3019,9 +2882,39 @@
   <tbody>
     
     <tr>
+      <td>1</td>
+      <td>
+        kind
+      </td>
+      <td>
+        <code title="uint32">
+          
+          <span>uint32</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
       <td>2</td>
       <td>
-        eventTemplate
+        template
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        sockets
       </td>
       <td>
         <code title="string">
@@ -3077,22 +2970,6 @@
         <code title="bool">
           
           <span>bool</span>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    <tr>
-      <td>2</td>
-      <td>
-        node
-      </td>
-      <td>
-        <code title="Node">
-          
-          <a href="__default.html#message-Node"><span title="Node">Node</span>
-    </a>
         </code>
       </td>
       <td class="content"></td>
