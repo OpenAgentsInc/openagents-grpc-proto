@@ -27,9 +27,10 @@ jobs:
 
     - name: Install dependencies
       run: |
-        sudo pecl channel-update pecl.php.net || true
-        sudo pecl install grpc || true
-        sudo pecl install protobuf || true
+        sudo pecl channel-update pecl.php.net 
+        sudo pecl install protobuf 
+        sudo pecl install grpc 
+        
 
 
     - name: Build
