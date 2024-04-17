@@ -24,10 +24,21 @@ jobs:
 
 
     - name: Build
-      run: echo TODO
+      run: bash build-php.sh
 
-    # - name: Upload PHP artifacts
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: build-php
-    #     path: build/php
+    - name: Upload PHP artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-php
+        path: build/php
+
+    - name: Prepare asset for upload
+      run: |
+        tar -czf build/openagents_grpc_proto-PHP.tar.gz -C build/php/ .
+       
+    - name: Upload release asset
+      if: github.event_name == 'release'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/openagents_grpc_proto-PHP.tar.gz
+        
