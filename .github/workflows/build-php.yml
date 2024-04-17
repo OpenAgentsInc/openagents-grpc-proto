@@ -25,6 +25,12 @@ jobs:
     - name: Install latest protobuf
       uses: arduino/setup-protoc@v3
 
+    - name: Install dependencies
+      run: |
+        sudo pecl channel-update pecl.php.net || true
+        sudo pecl install grpc || true
+        sudo pecl install protobuf || true
+
 
     - name: Build
       run: bash build-php.sh
