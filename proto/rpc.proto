@@ -132,6 +132,72 @@ message RpcAnnounceTemplateResponse {
   uint64 refreshInterval = 4;
 }
 
+message RpcCreateDiskRequest {
+  optional string name = 1;
+  optional string encryptionKey = 2;
+  optional bool includeEncryptionKeyInUrl = 3;
+}
+
+message RpcCreateDiskResponse {
+  string url = 1;
+}
+
+message RpcOpenDiskRequest {
+  string url = 1;
+  optional string encryptionKey = 2;
+}
+
+message RpcOpenDiskResponse {
+  bool success = 1;
+  string diskId = 2;
+}
+
+
+message RpcCloseDiskRequest {
+  string diskId = 1;
+}
+
+message RpcCloseDiskResponse {
+  bool success = 1;
+}
+
+message RpcDiskDeleteFileRequest {
+  string diskId = 1;
+  string path = 2;
+}
+
+message RpcDiskDeleteFileResponse {
+  bool success = 1;
+}
+
+message RpcDiskListFilesRequest {
+  string diskId = 1;
+  string path = 2;
+}
+
+message RpcDiskListFilesResponse {
+  repeated string files = 1;
+}
+
+message RpcDiskReadFileRequest {
+  string diskId = 1;
+  string path = 2;
+}
+
+message RpcDiskReadFileResponse {
+  bytes data = 1;
+}
+
+message RpcDiskWriteFileRequest {
+  string diskId = 1;
+  string path = 2;
+  bytes data = 3;
+}
+
+message RpcDiskWriteFileResponse {
+  bool success = 1;
+}
+
 service PoolConnector {
     // job management
     rpc requestJob (RpcRequestJob) returns (Job);
@@ -155,6 +221,20 @@ service PoolConnector {
     rpc subscribeToEvents (RpcSubscribeToEventsRequest) returns (RpcSubscribeToEventsResponse);
     rpc unsubscribeFromEvents (RpcUnsubscribeFromEventsRequest) returns (RpcUnsubscribeFromEventsResponse);
     rpc getEvents(RpcGetEventsRequest) returns (RpcGetEventsResponse);
+
+
+    // blob storage
+    rpc createDisk(RpcCreateDiskRequest) returns (RpcCreateDiskResponse);
+    rpc openDisk(RpcOpenDiskRequest) returns (RpcOpenDiskResponse);
+    rpc closeDisk(RpcCloseDiskRequest) returns (RpcCloseDiskResponse);
+
+    rpc diskDeleteFile(RpcDiskDeleteFileRequest) returns (RpcDiskDeleteFileResponse);
+    rpc diskListFiles(RpcDiskListFilesRequest) returns (RpcDiskListFilesResponse);
+    rpc diskReadFile(RpcDiskReadFileRequest) returns (stream RpcDiskReadFileResponse);
+    rpc diskReadSmallFile(RpcDiskReadFileRequest) returns (RpcDiskReadFileResponse);
+    rpc diskWriteFile(stream RpcDiskWriteFileRequest) returns (RpcDiskWriteFileResponse);
+    rpc diskWriteSmallFile(RpcDiskWriteFileRequest) returns (RpcDiskWriteFileResponse);
+    
 }
 
 
