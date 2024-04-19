@@ -22,19 +22,36 @@ jobs:
       with:
         php-version: '8.1'  
 
-    - name: Install latest protobuf
-      uses: arduino/setup-protoc@v3
-
     - name: Install dependencies
       run: |
         sudo pecl channel-update pecl.php.net 
         sudo pecl install protobuf 
-        sudo pecl install grpc 
+
+    - name: Build grpc from source
+      run: |
+        git clone --recurse-submodules -b v1.62.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc
+        RDIR=$(pwd)
+        cd grpc
+        git submodule update --init
+        EXTRA_DEFINES=GRPC_POSIX_FORK_ALLOW_PTHREAD_ATFORK make
+        grpc_root="$(pwd)"
+        cd src/php/ext/grpc
+        phpize
+        GRPC_LIB_SUBDIR=libs/opt ./configure --enable-grpc="${grpc_root}"
+        make
+        sudo make install
+        cd $RDIR
+        mkdir -p cmake/build
+        cd cmake/build
+        cmake ../..
+        make protoc grpc_php_plugin
+
         
-
-
     - name: Build
-      run: bash build-php.sh
+      run: |
+        export GRPC_EXT_PATH=$(pwd)/grpc/cmake/build/grpc_php_plugin
+        export PROTOC=$(pwd)/grpc/cmake/build/third_party/protobuf/protoc
+        bash build-php.sh
 
     - name: Upload PHP artifacts
       uses: actions/upload-artifact@v2

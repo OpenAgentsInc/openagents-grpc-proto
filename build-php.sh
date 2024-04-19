@@ -3,13 +3,14 @@ set -e
 mkdir -p tmp
 mkdir -p build/php
 
+if [ "$PROTOC" = "" ];
+then
+  PROTOC=$(which protoc)
+fi
 
-extpath=$(pecl config-show|grep "PEAR executables"|rev|cut -d' ' -f 1|rev)
-echo $extpath
-ls $extpath
-protoc --proto_path=proto \
+$PROTOC --proto_path=proto \
   --php_out=build/php \
   --grpc_out=build/php \
-  --plugin=protoc-gen-grpc=$extpath/grpc_php_plugin \
+  --plugin=protoc-gen-grpc=grpc_php_plugin \
   --experimental_allow_proto3_optional \
   proto/*.proto
