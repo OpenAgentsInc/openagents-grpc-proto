@@ -11,6 +11,6 @@ fi
 $PROTOC --proto_path=proto \
   --php_out=build/php \
   --grpc_out=build/php \
-  --plugin=protoc-gen-grpc=grpc_php_plugin \
+  --plugin=protoc-gen-grpc=$GRPC_EXT_PATH/grpc_php_plugin \
   --experimental_allow_proto3_optional \
   proto/*.proto

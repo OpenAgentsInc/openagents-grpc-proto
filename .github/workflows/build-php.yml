@@ -40,17 +40,18 @@ jobs:
         GRPC_LIB_SUBDIR=libs/opt ./configure --enable-grpc="${grpc_root}"
         make
         sudo make install
-        cd $RDIR
-        mkdir -p cmake/build
-        cd cmake/build
-        cmake ../..
+        cd $RDIR/grpc
+        mkdir -p cmake
+        cd cmake
+
+        cmake ..
         make protoc grpc_php_plugin
 
-        
+
     - name: Build
       run: |
-        export GRPC_EXT_PATH=$(pwd)/grpc/cmake/build/grpc_php_plugin
-        export PROTOC=$(pwd)/grpc/cmake/build/third_party/protobuf/protoc
+        export GRPC_EXT_PATH=$(pwd)/grpc/cmake/
+        export PROTOC=$(pwd)/grpc/cmake/third_party/protobuf/protoc
         bash build-php.sh
 
     - name: Upload PHP artifacts

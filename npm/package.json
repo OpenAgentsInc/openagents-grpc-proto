@@ -1,5 +1,8 @@
 {
     "name": "openagents-grpc-proto",
+    "config": {
+        "protocVersion": "26.1"
+    },
     "version": "0.3.4",
     "description": "",
     "scripts": {
@@ -13,7 +16,9 @@
     },
     "devDependencies": {
         "@types/node": "^20.12.5",
-        "typescript": "^5.4.4"
+        "typescript": "^5.4.4",
+        "ts-protoc-gen": "^0.15.0"
+        
     },
     "files": [
         "*.js",

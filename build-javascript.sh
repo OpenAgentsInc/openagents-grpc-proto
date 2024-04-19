@@ -2,8 +2,8 @@
 set -e
 mkdir -p build/javascript
 
-
-npm i --save-dev @grpc/grpc-js ts-protoc-gen @protobuf-ts/plugin typescript @types/node
+cp npm/package.json .
+npm i
 
 npx protoc --ts_out build/javascript \
 --experimental_allow_proto3_optional \
