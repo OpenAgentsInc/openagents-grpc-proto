@@ -187,6 +187,7 @@ message RpcDiskReadFileRequest {
 
 message RpcDiskReadFileResponse {
   bytes data = 1;
+  bool exists = 2;
 }
 
 message RpcDiskWriteFileRequest {
@@ -217,6 +218,7 @@ message RpcCacheGetRequest {
 
 message RpcCacheGetResponse {
   bytes value = 1;
+  bool exists = 2;
 }
 
 service PoolConnector {
