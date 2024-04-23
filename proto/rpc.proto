@@ -20,6 +20,8 @@ message RpcRequestJob {
 
 message RpcGetJob {
     string jobId = 1;
+    optional uint32 wait = 99; // max time to wait in ms , 0 or unset means no wait
+
 }
 
 message RpcGetPendingJobs {
@@ -28,6 +30,7 @@ message RpcGetPendingJobs {
     optional string filterByDescription = 3;
     optional string filterById = 4;
     optional string filterByKind = 5;
+    optional uint32 wait = 99; // max time to wait in ms , 0 or unset means no wait
 }
 
 message PendingJobs {
