@@ -6,6 +6,8 @@ import "JobState.proto";
 import "JobResult.proto";
 
 
+option php_namespace = 'App\\Grpc\\nostr';
+option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
 
 message Job {
   string id = 1;

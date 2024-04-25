@@ -7,7 +7,8 @@ import "JobParam.proto";
 import "JobInput.proto";
 import "JobResult.proto";
 import "Job.proto";
-
+option php_namespace = 'App\\Grpc\\nostr';
+option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
 message RpcRequestJob {
     string runOn = 1;
     uint64 expireAfter = 2;

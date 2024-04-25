@@ -1,4 +1,6 @@
 syntax = "proto3";
+option php_namespace = 'App\\Grpc\\nostr';
+option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
 
 message JobInput {
   optional string data = 1;
