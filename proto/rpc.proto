@@ -16,6 +16,8 @@ message RpcRequestJob {
     string description = 6;
     optional uint32 kind = 7;
     optional string outputFormat = 8; 
+    optional string requestProvider = 9;
+    optional bool encrypted = 10;
 }
 
 message RpcGetJob {

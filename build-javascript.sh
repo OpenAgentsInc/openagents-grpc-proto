@@ -5,6 +5,8 @@ mkdir -p build/javascript
 cp npm/package.json .
 npm i
 
+rm -Rf build/javascript || true
+
 npx protoc --ts_out build/javascript \
 --experimental_allow_proto3_optional \
 --ts_opt long_type_number,server_generic \
