@@ -1,11 +1,15 @@
 #!/bin/bash
 set -e
+
+if [[ -d build/javascript ]]; then
+    rm -Rf build/javascript 
+fi
 mkdir -p build/javascript
 
 cp npm/package.json .
 npm i
 
-rm -Rf build/javascript || true
+
 
 npx protoc --ts_out build/javascript \
 --experimental_allow_proto3_optional \
