@@ -43,6 +43,11 @@ jobs:
 
     - name: Publish
       if: github.event_name == 'release'
-      run: cd build/javascript && npm publish
+      run: |
+        cd build/javascript
+        echo "Rename package to ${{ github.repository_owner }}/${{github.event.repository.name}} for github package registry"
+        sed -i 's/"name": "openagents-grpc-proto"/"name": "@${{ github.repository_owner }}\/${{github.event.repository.name}}"/g' package.json
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
+        npm publish --registry https://npm.pkg.github.com --access public 
       env:
         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
