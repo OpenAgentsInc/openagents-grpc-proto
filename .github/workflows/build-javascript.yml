@@ -43,6 +43,9 @@ jobs:
 
     - name: Publish
       if: github.event_name == 'release'
-      run: cd build/javascript && npm publish
+      run: |
+        cd build/javascript
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
+        npm publish --registry https://npm.pkg.github.com/${{ github.repository_owner }} --access public 
       env:
         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
