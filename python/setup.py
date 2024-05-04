@@ -1,7 +1,16 @@
 from setuptools import setup, find_packages
 import os
 
-version = os.getenv('TAG', '0.1')
+
+version='0.1'
+
+if os.path.exists('VERSION'):
+    try:
+        with open('VERSION', 'r') as version_file:
+            version = version_file.read().strip()
+    except Exception as e:
+        print(f'Failed to read version from VERSION file: {e}')
+
 setup(
     name='openagents_grpc_proto',
     author='OpenAgents',
