@@ -26,7 +26,6 @@ fi
 
 if [ "$DEBUG" = "1" ] ;
 then
-    deactivate
     pip install -e .
 else 
     python setup.py sdist
