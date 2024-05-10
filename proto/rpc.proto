@@ -282,10 +282,16 @@ message RpcDiscoverNearbyActionsResponse {
   repeated string actions = 1;
 }
 
+message RpcJobRequest {
+  string event=1;
+  optional string provider=2;
+  optional bool encrypted=3;
+}
 
 service PoolConnector {
     // job management
     rpc requestJob (RpcRequestJob) returns (Job);
+    rpc sendJobRequest(RpcJobRequest) returns (Job);
     rpc getJob (RpcGetJob) returns (Job);
     rpc getPendingJobs (RpcGetPendingJobs) returns (PendingJobs);
     rpc isJobDone (RpcGetJob) returns (RpcIsJobDone);
