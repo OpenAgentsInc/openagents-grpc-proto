@@ -242,6 +242,7 @@ message RpcDiscoverNodesRequest {
   repeated int32 filterByKinds = 1;
   repeated string filterByPools = 2;
   repeated string filterByNodes = 3;
+  repeated string filterByKindRanges = 4;
 }
 
 message RpcDiscoverNodesResponse {
@@ -253,6 +254,7 @@ message RpcDiscoverActionsRequest {
   repeated string filterByPools = 2;
   repeated string filterByNodes = 3;
   repeated string filterByTags = 4;
+  repeated string filterByKindRanges = 5;
 }
 
 message RpcDiscoverActionsResponse {
@@ -262,6 +264,7 @@ message RpcDiscoverActionsResponse {
 message RpcDiscoverNearbyNodesRequest {
   repeated int32 filterByKinds = 1;
   repeated string filterByNodes = 3;
+  repeated string filterByKindRanges = 5;
 }
 
 message RpcDiscoverNearbyNodesResponse {
@@ -272,6 +275,7 @@ message RpcDiscoverNearbyActionsRequest {
   repeated int32 filterByKinds = 1;
   repeated string filterByNodes = 3;
   repeated string filterByTags = 4;
+  repeated string filterByKindRanges = 5;
 }
 
 message RpcDiscoverNearbyActionsResponse {
