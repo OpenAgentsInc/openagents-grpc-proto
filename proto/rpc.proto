@@ -229,6 +229,56 @@ message RpcCacheGetResponse {
   bool exists = 2;
 }
 
+
+message RpcDiscoverPoolsRequest {
+
+}
+
+message RpcDiscoverPoolsResponse {
+  repeated string pools = 1;
+}
+
+message RpcDiscoverNodesRequest {
+  repeated int32 filterByKinds = 1;
+  repeated string filterByPools = 2;
+  repeated string filterByNodes = 3;
+}
+
+message RpcDiscoverNodesResponse {
+  repeated string nodes = 1;
+}
+
+message RpcDiscoverActionsRequest {
+  repeated int32 filterByKinds = 1;
+  repeated string filterByPools = 2;
+  repeated string filterByNodes = 3;
+  repeated string filterByTags = 4;
+}
+
+message RpcDiscoverActionsResponse {
+  repeated string actions = 1;
+}
+
+message RpcDiscoverNearbyNodesRequest {
+  repeated int32 filterByKinds = 1;
+  repeated string filterByNodes = 3;
+}
+
+message RpcDiscoverNearbyNodesResponse {
+  repeated string nodes = 1;
+}
+
+message RpcDiscoverNearbyActionsRequest {
+  repeated int32 filterByKinds = 1;
+  repeated string filterByNodes = 3;
+  repeated string filterByTags = 4;
+}
+
+message RpcDiscoverNearbyActionsResponse {
+  repeated string actions = 1;
+}
+
+
 service PoolConnector {
     // job management
     rpc requestJob (RpcRequestJob) returns (Job);
@@ -245,6 +295,11 @@ service PoolConnector {
     // discovery
     rpc announceNode (RpcAnnounceNodeRequest) returns (RpcAnnounceNodeResponse);
     rpc announceEventTemplate (RpcAnnounceTemplateRequest) returns (RpcAnnounceTemplateResponse);
+    rpc discoverPools(RpcDiscoverPoolsRequest) returns (RpcDiscoverPoolsResponse);
+    rpc discoverNodes(RpcDiscoverNodesRequest) returns (RpcDiscoverNodesResponse);
+    rpc discoverActions(RpcDiscoverActionsRequest) returns (RpcDiscoverActionsResponse);
+    rpc discoverNearbyNodes(RpcDiscoverNearbyNodesRequest) returns (RpcDiscoverNearbyNodesResponse);
+    rpc discoverNearbyActions(RpcDiscoverNearbyActionsRequest) returns (RpcDiscoverNearbyActionsResponse);
 
 
     // generic nostr events
@@ -270,6 +325,9 @@ service PoolConnector {
     // cache
     rpc cacheSet(stream RpcCacheSetRequest) returns (RpcCacheSetResponse);
     rpc cacheGet(RpcCacheGetRequest) returns (stream RpcCacheGetResponse);
+
+
+    
 }
 
 
