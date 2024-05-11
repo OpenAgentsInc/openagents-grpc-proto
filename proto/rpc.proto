@@ -19,6 +19,7 @@ message RpcRequestJob {
     optional string outputFormat = 8; 
     optional string requestProvider = 9;
     optional bool encrypted = 10;
+    optional string userId = 11;
 }
 
 message RpcGetJob {
