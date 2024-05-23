@@ -108,15 +108,6 @@
     
       
       <p>
-        <a href="#message-JobState">
-          <span class="tag" style="min-width: 6em">Message</span>
-          <code>JobState</code> 
-        </a>
-      </p>
-      
-    
-      
-      <p>
         <a href="#message-JobResult">
           <span class="tag" style="min-width: 6em">Message</span>
           <code>JobResult</code> 
@@ -126,9 +117,27 @@
     
       
       <p>
+        <a href="#message-JobState">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>JobState</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
         <a href="#message-Job">
           <span class="tag" style="min-width: 6em">Message</span>
           <code>Job</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-Payment">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>Payment</code> 
         </a>
       </p>
       
@@ -598,6 +607,13 @@
         <a href="#enum-JobStatus">
           <span class="tag" style="min-width: 6em">Enum</span>
           <code>JobStatus</code> 
+        </a>
+      </p>
+    
+      <p>
+        <a href="#enum-PaymentStatus">
+          <span class="tag" style="min-width: 6em">Enum</span>
+          <code>PaymentStatus</code> 
         </a>
       </p>
     
@@ -1485,6 +1501,86 @@
       <div class="block">
         
 
+<h4 class="title is-4 type-heading" id="message-JobResult">
+  <span>
+    <a href="#message-JobResult" title="JobResult">message JobResult</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        content
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        timestamp
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
 <h4 class="title is-4 type-heading" id="message-JobState">
   <span>
     <a href="#message-JobState" title="JobState">message JobState</a>
@@ -1588,50 +1684,16 @@
       
     </tr>
     
-    
-  </tbody>
-</table>
- 
-      </div>
-      
-    
-      
-      <div class="block">
-        
-
-<h4 class="title is-4 type-heading" id="message-JobResult">
-  <span>
-    <a href="#message-JobResult" title="JobResult">message JobResult</a>
-  
-  </span>
-  
-</h4>
-
-<div class="block content">
-  
-</div>
-
-<table class="table is-fullwidth is-hoverable is-bordered">
-  <thead>
     <tr>
-      <th></th>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Description</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    
-    <tr>
-      <td>1</td>
+      <td>19</td>
       <td>
-        content
+        result
       </td>
       <td>
-        <code title="string">
+        <code title="JobResult">
           
-          <span>string</span>
+          <a href="__default.html#message-JobResult"><span title="JobResult">JobResult</span>
+    </a>
         </code>
       </td>
       <td class="content"></td>
@@ -1639,24 +1701,9 @@
     </tr>
     
     <tr>
-      <td>2</td>
+      <td>20</td>
       <td>
-        timestamp
-      </td>
-      <td>
-        <code title="uint64">
-          
-          <span>uint64</span>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    <tr>
-      <td>3</td>
-      <td>
-        id
+        acceptedByNode
       </td>
       <td>
         <code title="string">
@@ -1888,7 +1935,8 @@
     </a>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>*
+Deprecated</p></td>
       
     </tr>
     
@@ -1899,6 +1947,25 @@
       </td>
       <td>
         <code title="JobState">
+          
+          <a href="__default.html#message-JobState"><span title="JobState">JobState</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"><p>*
+Deprecated</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>18</td>
+      <td>
+        results
+      </td>
+      <td>
+        <code title="JobState">
+          
+            repeated
           
           <a href="__default.html#message-JobState"><span title="JobState">JobState</span>
     </a>
@@ -1967,6 +2034,133 @@
         </code>
       </td>
       <td class="content"><p>map<string,JobResult> results = 12;</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-Payment">
+  <span>
+    <a href="#message-Payment" title="Payment">message Payment</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        id
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        amount
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        currency
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        protocol
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>5</td>
+      <td>
+        status
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        data
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
       
     </tr>
     
@@ -2171,6 +2365,23 @@
       
     </tr>
     
+    <tr>
+      <td>12</td>
+      <td>
+        minWorkers
+      </td>
+      <td>
+        <code title="uint32">
+          
+            optional
+          
+          <span>uint32</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
     
   </tbody>
 </table>
@@ -2235,6 +2446,23 @@
         </code>
       </td>
       <td class="content"><p>max time to wait in ms , 0 or unset means no wait</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>100</td>
+      <td>
+        nResultsToWait
+      </td>
+      <td>
+        <code title="uint32">
+          
+            optional
+          
+          <span>uint32</span>
+        </code>
+      </td>
+      <td class="content"><p>max number of results to wait for</p></td>
       
     </tr>
     
@@ -5688,6 +5916,66 @@
     
     <tr>
       <td><code>UNKNOWN</code></td>
+      <td>99</td>
+      <td class="content"></td>
+    </tr>
+    
+  </tbody>
+</table> 
+    </div>
+    
+    <div class="block">
+      <h4 class="title is-4 type-heading" id="enum-PaymentStatus">
+  <a href="#enum-PaymentStatus" title="PaymentStatus">enum PaymentStatus</a>
+  
+</h4>
+
+<div class="block content">
+  <p></p>
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><code>PAYMENT_SENT</code></td>
+      <td>0</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>PAYMENT_RECEIVED</code></td>
+      <td>1</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>PAYMENT_REFUNDED</code></td>
+      <td>2</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>PAYMENT_FAILED</code></td>
+      <td>3</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>PAYMENT_PENDING</code></td>
+      <td>4</td>
+      <td class="content"></td>
+    </tr>
+    
+    <tr>
+      <td><code>PAYMENT_UNKNOWN_STATUS</code></td>
       <td>99</td>
       <td class="content"></td>
     </tr>
