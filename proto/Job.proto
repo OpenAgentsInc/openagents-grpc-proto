@@ -26,8 +26,17 @@ message Job {
 
   repeated string relays = 10;
 
+  /**
+  * Deprecated
+  */
   JobResult result = 12;
+
+  /**
+  * Deprecated
+  */
   JobState state = 11;
+
+  repeated JobState results = 18;
   
   uint64 maxExecutionTime = 13; // enforced by the provider
   string nodeId = 15;

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "Log.proto";
 import "JobStatus.proto";
+import "JobResult.proto";
 option php_namespace = 'App\\Grpc\\nostr';
 option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
 
@@ -14,4 +15,7 @@ message JobState {
   JobStatus status = 15;
   repeated Log logs = 17;
   uint64 timestamp = 18;
+  
+  JobResult result = 19;
+  string acceptedByNode = 20;
 }

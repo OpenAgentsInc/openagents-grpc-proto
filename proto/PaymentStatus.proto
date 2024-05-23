@@ -1,0 +1,13 @@
+
+syntax = "proto3";
+option php_namespace = 'App\\Grpc\\nostr';
+option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
+
+enum PaymentStatus {
+    PAYMENT_SENT = 0;
+    PAYMENT_RECEIVED = 1;
+    PAYMENT_REFUNDED = 2;
+    PAYMENT_FAILED = 3;
+    PAYMENT_PENDING = 4;
+    PAYMENT_UNKNOWN_STATUS = 99;
+}

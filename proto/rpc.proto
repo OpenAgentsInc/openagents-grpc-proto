@@ -7,6 +7,9 @@ import "JobParam.proto";
 import "JobInput.proto";
 import "JobResult.proto";
 import "Job.proto";
+import "Payment.proto";
+import "PaymentStatus.proto";
+
 option php_namespace = 'App\\Grpc\\nostr';
 option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
 message RpcRequestJob {
@@ -20,12 +23,13 @@ message RpcRequestJob {
     optional string requestProvider = 9;
     optional bool encrypted = 10;
     optional string userId = 11;
+    optional uint32 minWorkers = 12;
 }
 
 message RpcGetJob {
     string jobId = 1;
     optional uint32 wait = 99; // max time to wait in ms , 0 or unset means no wait
-
+    optional uint32 nResultsToWait = 100; // max number of results to wait for
 }
 
 message RpcGetPendingJobs {
@@ -336,6 +340,15 @@ service PoolConnector {
     // cache
     rpc cacheSet(stream RpcCacheSetRequest) returns (RpcCacheSetResponse);
     rpc cacheGet(RpcCacheGetRequest) returns (stream RpcCacheGetResponse);
+
+
+    // pay
+    // rpc requestPayment(RpcRequestPayment) returns (RpcRequestPaymentResponse);
+    // rpc cancelAndRefundPayment(RpcCancelAndRefundPayment) returns (RpcCancelAndRefundPaymentResponse);
+    
+    // rpc getPayment(RpcGetPayment) returns (RpcGetPaymentResponse);
+    // rpc sendPayment(RpcSendPayment) returns (RpcSendPaymentResponse);
+    
 
 
     
