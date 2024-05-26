@@ -4,6 +4,7 @@ import "JobParam.proto";
 import "JobInput.proto";
 import "JobState.proto";
 import "JobResult.proto";
+import "Payment.proto";
 
 
 option php_namespace = 'App\\Grpc\\nostr';
@@ -42,10 +43,9 @@ message Job {
   string nodeId = 15;
   string outputFormat = 16;
   optional bool encrypted = 17;
-  // map<string,JobResult> results = 12;
-
-  // map<string,JobState> states = 11;
   
+  repeated Payment bids = 19;
+
 
 
  

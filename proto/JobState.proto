@@ -3,6 +3,7 @@ syntax = "proto3";
 import "Log.proto";
 import "JobStatus.proto";
 import "JobResult.proto";
+import "Payment.proto";
 option php_namespace = 'App\\Grpc\\nostr';
 option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
 
@@ -18,4 +19,6 @@ message JobState {
   
   JobResult result = 19;
   string acceptedByNode = 20;
+
+  repeated Payment paymentRequests = 21;
 }
