@@ -5,7 +5,7 @@ import "JobInput.proto";
 import "JobState.proto";
 import "JobResult.proto";
 import "Payment.proto";
-
+import "Bid.proto";
 
 option php_namespace = 'App\\Grpc\\nostr';
 option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
@@ -44,7 +44,7 @@ message Job {
   string outputFormat = 16;
   optional bool encrypted = 17;
   
-  repeated Payment bids = 19;
+  optional Bid bid = 19;
 
 
 

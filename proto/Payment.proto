@@ -2,12 +2,13 @@
 syntax = "proto3";
 option php_namespace = 'App\\Grpc\\nostr';
 option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
+import "PaymentStatus.proto";
 
 message Payment {
     string id = 1;
     uint64 amount = 2;
     string currency = 3;
     string protocol = 4;
-    string status = 5;
+    PaymentStatus status = 5;
     optional string data = 6;
 }
