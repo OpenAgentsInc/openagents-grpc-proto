@@ -30,6 +30,9 @@ message RpcGetJob {
     string jobId = 1;
     optional uint32 wait = 99; // max time to wait in ms , 0 or unset means no wait
     optional uint32 nResultsToWait = 100; // max number of results to wait for
+    optional uint64 streamPayment = 2;// millisats to pay 
+    optional string streamPaymentCurrency = 3; // currency to pay
+    optional string streamPaymentProtocol = 4; // protocol to pay
 }
 
 message RpcGetPendingJobs {
@@ -293,6 +296,14 @@ message RpcJobRequest {
   optional bool encrypted=3;
 }
 
+
+message RpcPayJobRequest {
+  string jobId = 1;
+  uint64 amount = 2;
+  string currency = 3;
+  string protocol = 4;
+}
+
 service PoolConnector {
     // job management
     rpc requestJob (RpcRequestJob) returns (Job);
@@ -305,6 +316,7 @@ service PoolConnector {
     rpc outputForJob(RpcJobOutput) returns (Job);
     rpc completeJob(RpcJobComplete) returns (Job);
     rpc logForJob(RpcJobLog) returns (Job);
+    rpc payJob(RpcPayJobRequest) returns (Job);
 
 
     // discovery
