@@ -11,4 +11,5 @@ message Payment {
     string protocol = 4;
     PaymentStatus status = 5;
     optional string data = 6;
+    optional string proof = 7;
 }
