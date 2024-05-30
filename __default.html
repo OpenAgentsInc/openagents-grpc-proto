@@ -610,6 +610,15 @@
       </p>
       
     
+      
+      <p>
+        <a href="#message-RpcPayJobRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcPayJobRequest</code> 
+        </a>
+      </p>
+      
+    
 
     
       <p>
@@ -809,6 +818,22 @@
       </a>
     </h5>
     Request: <code><a href="__default.html#message-RpcJobLog"><span title="RpcJobLog">RpcJobLog</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-PoolConnector-payJob">
+      <a href="#service-PoolConnector-payJob">
+        rpc <code>payJob</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcPayJobRequest"><span title="RpcPayJobRequest">RpcPayJobRequest</span>
     </a></code><br>
     Response: <code><a href="__default.html#message-Job"><span title="Job">Job</span>
     </a></code><br>
@@ -2525,6 +2550,24 @@ Deprecated</p></td>
       
     </tr>
     
+    <tr>
+      <td>13</td>
+      <td>
+        bid
+      </td>
+      <td>
+        <code title="Bid">
+          
+            optional
+          
+          <a href="__default.html#message-Bid"><span title="Bid">Bid</span>
+    </a>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
     
   </tbody>
 </table>
@@ -2606,6 +2649,57 @@ Deprecated</p></td>
         </code>
       </td>
       <td class="content"><p>max number of results to wait for</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        streamPayment
+      </td>
+      <td>
+        <code title="uint64">
+          
+            optional
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"><p>millisats to pay</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        streamPaymentCurrency
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>currency to pay</p></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        streamPaymentProtocol
+      </td>
+      <td>
+        <code title="string">
+          
+            optional
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"><p>protocol to pay</p></td>
       
     </tr>
     
@@ -2723,6 +2817,24 @@ Deprecated</p></td>
             optional
           
           <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>6</td>
+      <td>
+        filterByBids
+      </td>
+      <td>
+        <code title="Bid">
+          
+            repeated
+          
+          <a href="__default.html#message-Bid"><span title="Bid">Bid</span>
+    </a>
         </code>
       </td>
       <td class="content"></td>
@@ -5978,6 +6090,101 @@ Deprecated</p></td>
             optional
           
           <span>bool</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcPayJobRequest">
+  <span>
+    <a href="#message-RpcPayJobRequest" title="RpcPayJobRequest">message RpcPayJobRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        amount
+      </td>
+      <td>
+        <code title="uint64">
+          
+          <span>uint64</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>3</td>
+      <td>
+        currency
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>4</td>
+      <td>
+        protocol
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
         </code>
       </td>
       <td class="content"></td>
