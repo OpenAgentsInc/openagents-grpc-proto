@@ -9,6 +9,7 @@ import "JobResult.proto";
 import "Job.proto";
 import "Payment.proto";
 import "PaymentStatus.proto";
+import "Bid.proto";
 
 option php_namespace = 'App\\Grpc\\nostr';
 option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
@@ -24,6 +25,7 @@ message RpcRequestJob {
     optional bool encrypted = 10;
     optional string userId = 11;
     optional uint32 minWorkers = 12;
+    optional Bid bid = 13;
 }
 
 message RpcGetJob {
@@ -41,6 +43,7 @@ message RpcGetPendingJobs {
     optional string filterByDescription = 3;
     optional string filterById = 4;
     optional string filterByKind = 5;
+    repeated Bid filterByBids = 6;
     repeated string excludeId = 98; // which job ids to exclude, optional
     optional uint32 wait = 99; // max time to wait in ms , 0 or unset means no wait
 
