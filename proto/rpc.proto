@@ -1,15 +1,10 @@
 syntax = "proto3";
 
-import "Log.proto";
-import "JobStatus.proto";
-import "JobState.proto";
 import "JobParam.proto";
 import "JobInput.proto";
-import "JobResult.proto";
 import "Job.proto";
 import "Payment.proto";
 import "PaymentStatus.proto";
-import "Bid.proto";
 
 option php_namespace = 'App\\Grpc\\nostr';
 option php_metadata_namespace = 'App\\Grpc\\nostr\\GPBMetadata';
@@ -25,7 +20,7 @@ message RpcRequestJob {
     optional bool encrypted = 10;
     optional string userId = 11;
     optional uint32 minWorkers = 12;
-    optional Bid bid = 13;
+    optional Payment bid = 13;
 }
 
 message RpcGetJob {
@@ -43,7 +38,7 @@ message RpcGetPendingJobs {
     optional string filterByDescription = 3;
     optional string filterById = 4;
     optional string filterByKind = 5;
-    repeated Bid filterByBids = 6;
+    repeated Payment filterByBids = 6;
     repeated string excludeId = 98; // which job ids to exclude, optional
     optional uint32 wait = 99; // max time to wait in ms , 0 or unset means no wait
 
@@ -76,6 +71,17 @@ message RpcJobComplete{
   string jobId = 1;
   string output = 2;
   optional string info = 3;
+  optional Payment cost = 4;
+}
+
+message RpcRequestPayment{
+  optional Payment payment = 1;
+  optional bool waitForPayments = 2  ;
+
+}
+
+message RpcRequestPaymentResponse{
+  PaymentStatus status=1;
 }
 
 message RpcJobLog {
@@ -320,6 +326,7 @@ service PoolConnector {
     rpc completeJob(RpcJobComplete) returns (Job);
     rpc logForJob(RpcJobLog) returns (Job);
     rpc payJob(RpcPayJobRequest) returns (Job);
+    rpc requestPayment(RpcRequestPayment) returns (RpcRequestPaymentResponse);
 
 
     // discovery
@@ -357,13 +364,6 @@ service PoolConnector {
     rpc cacheGet(RpcCacheGetRequest) returns (stream RpcCacheGetResponse);
 
 
-    // pay
-    // rpc requestPayment(RpcRequestPayment) returns (RpcRequestPaymentResponse);
-    // rpc cancelAndRefundPayment(RpcCancelAndRefundPayment) returns (RpcCancelAndRefundPaymentResponse);
-    
-    // rpc getPayment(RpcGetPayment) returns (RpcGetPaymentResponse);
-    // rpc sendPayment(RpcSendPayment) returns (RpcSendPaymentResponse);
-    
 
 
     
