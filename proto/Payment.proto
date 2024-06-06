@@ -9,7 +9,7 @@ message Payment {
     uint64 amount = 2;
     string currency = 3;
     string protocol = 4;
-    PaymentStatus status = 5;
+    optional PaymentStatus status = 5;
     optional string data = 6;
     optional string proof = 7;
 }
