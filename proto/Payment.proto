@@ -12,4 +12,5 @@ message Payment {
     optional PaymentStatus status = 5;
     optional string data = 6;
     optional string proof = 7;
+    optional bool waitForPayment = 8;
 }
