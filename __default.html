@@ -243,6 +243,24 @@
     
       
       <p>
+        <a href="#message-RpcWaitForPaymentsRequest">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcWaitForPaymentsRequest</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
+        <a href="#message-RpcWaitForPaymentsResponse">
+          <span class="tag" style="min-width: 6em">Message</span>
+          <code>RpcWaitForPaymentsResponse</code> 
+        </a>
+      </p>
+      
+    
+      
+      <p>
         <a href="#message-RpcJobLog">
           <span class="tag" style="min-width: 6em">Message</span>
           <code>RpcJobLog</code> 
@@ -861,6 +879,22 @@
     Request: <code><a href="__default.html#message-RpcRequestPayment"><span title="RpcRequestPayment">RpcRequestPayment</span>
     </a></code><br>
     Response: <code><a href="__default.html#message-RpcRequestPaymentResponse"><span title="RpcRequestPaymentResponse">RpcRequestPaymentResponse</span>
+    </a></code><br>
+  </div>
+
+  
+</div>
+
+<div class="box">
+  <div class="block">
+    <h5 class="title is-5" id="service-PoolConnector-waitForPayments">
+      <a href="#service-PoolConnector-waitForPayments">
+        rpc <code>waitForPayments</code>
+      </a>
+    </h5>
+    Request: <code><a href="__default.html#message-RpcWaitForPaymentsRequest"><span title="RpcWaitForPaymentsRequest">RpcWaitForPaymentsRequest</span>
+    </a></code><br>
+    Response: <code><a href="__default.html#message-RpcWaitForPaymentsResponse"><span title="RpcWaitForPaymentsResponse">RpcWaitForPaymentsResponse</span>
     </a></code><br>
   </div>
 
@@ -1778,6 +1812,23 @@
       
     </tr>
     
+    <tr>
+      <td>8</td>
+      <td>
+        waitForPayment
+      </td>
+      <td>
+        <code title="bool">
+          
+            optional
+          
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
     
   </tbody>
 </table>
@@ -2444,7 +2495,7 @@
           <span>string</span>
         </code>
       </td>
-      <td class="content"></td>
+      <td class="content"><p>deprecated: pass as header instead</p></td>
       
     </tr>
     
@@ -3209,6 +3260,21 @@
   <tbody>
     
     <tr>
+      <td>3</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
       <td>1</td>
       <td>
         payment
@@ -3220,23 +3286,6 @@
           
           <a href="__default.html#message-Payment"><span title="Payment">Payment</span>
     </a>
-        </code>
-      </td>
-      <td class="content"></td>
-      
-    </tr>
-    
-    <tr>
-      <td>2</td>
-      <td>
-        waitForPayments
-      </td>
-      <td>
-        <code title="bool">
-          
-            optional
-          
-          <span>bool</span>
         </code>
       </td>
       <td class="content"></td>
@@ -3284,10 +3333,126 @@
         status
       </td>
       <td>
-        <code title="PaymentStatus">
+        <code title="bool">
           
-          <a href="__default.html#enum-PaymentStatus"><span title="PaymentStatus">PaymentStatus</span>
-    </a>
+          <span>bool</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcWaitForPaymentsRequest">
+  <span>
+    <a href="#message-RpcWaitForPaymentsRequest" title="RpcWaitForPaymentsRequest">message RpcWaitForPaymentsRequest</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        jobId
+      </td>
+      <td>
+        <code title="string">
+          
+          <span>string</span>
+        </code>
+      </td>
+      <td class="content"></td>
+      
+    </tr>
+    
+    <tr>
+      <td>2</td>
+      <td>
+        wait
+      </td>
+      <td>
+        <code title="uint32">
+          
+            optional
+          
+          <span>uint32</span>
+        </code>
+      </td>
+      <td class="content"><p>max time to wait in ms , 0 or unset means no wait</p></td>
+      
+    </tr>
+    
+    
+  </tbody>
+</table>
+ 
+      </div>
+      
+    
+      
+      <div class="block">
+        
+
+<h4 class="title is-4 type-heading" id="message-RpcWaitForPaymentsResponse">
+  <span>
+    <a href="#message-RpcWaitForPaymentsResponse" title="RpcWaitForPaymentsResponse">message RpcWaitForPaymentsResponse</a>
+  
+  </span>
+  
+</h4>
+
+<div class="block content">
+  
+</div>
+
+<table class="table is-fullwidth is-hoverable is-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>1</td>
+      <td>
+        status
+      </td>
+      <td>
+        <code title="bool">
+          
+          <span>bool</span>
         </code>
       </td>
       <td class="content"></td>
