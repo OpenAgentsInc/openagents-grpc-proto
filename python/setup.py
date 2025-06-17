@@ -17,7 +17,7 @@ setup(
     version=version,
     packages=find_packages(),
     install_requires=[
-        'protobuf==5.26.1',
+        'protobuf==5.29.5',
         'grpcio==1.63.0'
     ],
 )
